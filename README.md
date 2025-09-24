@@ -1,7 +1,9 @@
 # Function
 
 Team name: 
-Team 26
+Team 26(function)
+
+
 
 Members:
 1- Julien DeWolfe 300506608
