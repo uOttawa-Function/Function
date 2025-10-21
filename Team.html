@@ -1,296 +1,384 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Team — Split Preview</title>
-  <style>
-    :root {
-      --bg: #ffffff;
-      --fg: #111111;
-      --muted: #666666;
-      --accent: #000000; /* highlight color for names */
-      --highlight-bg: #f2f2f2; /* subtle hover background */
-    }
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Team — Split Preview</title>
+        <style>
+            :root {
+                --bg: #ffffff;
+                --fg: #111111;
+                --muted: #666666;
+                --accent: #000000; /* highlight color for names */
+                --highlight-bg: #f2f2f2; /* subtle hover background */
+            }
 
-    /* Base reset */
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: var(--bg);
-      color: var(--fg);
-      line-height: 1.5;
-    }
+            /* Base reset */
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+            html,
+            body {
+                height: 100%;
+            }
+            body {
+                margin: 0;
+                font-family:
+                    system-ui,
+                    -apple-system,
+                    Segoe UI,
+                    Roboto,
+                    Ubuntu,
+                    Cantarell,
+                    Noto Sans,
+                    Helvetica,
+                    Arial,
+                    "Apple Color Emoji",
+                    "Segoe UI Emoji";
+                background: var(--bg);
+                color: var(--fg);
+                line-height: 1.5;
+            }
 
-    .page {
-      min-height: 100dvh;
-      display: grid;
-      grid-template-columns: 1fr 1fr; /* 1/2 left, 1/2 right */
-    }
+            .page {
+                min-height: 100dvh;
+                display: grid;
+                grid-template-columns: 1fr 1fr; /* 1/2 left, 1/2 right */
+            }
 
-    /* Left preview panel */
-    .preview {
-      position: relative;
-      padding: clamp(16px, 4vw, 40px);
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      gap: 20px;
-    }
+            /* Left preview panel */
+            .preview {
+                position: relative;
+                padding: clamp(16px, 4vw, 40px);
+                display: grid;
+                grid-template-rows: auto 1fr auto;
+                gap: 20px;
+            }
 
-    .photo-wrap {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      border: 1px solid #e5e5e5;
-      overflow: hidden;
-      border-radius: 16px;
-    }
-    .photo-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      filter: saturate(0.95);
-      transition: opacity 220ms ease;
-    }
+            .photo-wrap {
+                width: 100%;
+                aspect-ratio: 4 / 3;
+                border: 1px solid #e5e5e5;
+                overflow: hidden;
+                border-radius: 16px;
+            }
+            .photo-wrap img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                filter: saturate(0.95);
+                transition: opacity 220ms ease;
+            }
 
-    .name-role {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .name {
-      font-size: clamp(22px, 3vw, 34px);
-      font-weight: 700;
-      letter-spacing: 0.2px;
-    }
-    .role {
-      font-size: clamp(14px, 1.6vw, 16px);
-      color: var(--muted);
-    }
-    .bio {
-      margin-top: 8px;
-      font-size: clamp(14px, 1.6vw, 16px);
-    }
+            .name-role {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+            }
+            .name {
+                font-size: clamp(22px, 3vw, 34px);
+                font-weight: 700;
+                letter-spacing: 0.2px;
+            }
+            .role {
+                font-size: clamp(14px, 1.6vw, 16px);
+                color: var(--muted);
+            }
+            .bio {
+                margin-top: 8px;
+                font-size: clamp(14px, 1.6vw, 16px);
+            }
 
-    /* Right list panel */
-    .roster {
-      border-left: 1px solid #eee;
-      padding: clamp(8px, 2vw, 20px) clamp(8px, 2vw, 28px);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+            /* Right list panel */
+            .roster {
+                border-left: 1px solid #eee;
+                padding: clamp(8px, 2vw, 20px) clamp(8px, 2vw, 28px);
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
 
-    .roster-header {
-      font-weight: 700;
-      font-size: clamp(16px, 2vw, 18px);
-      margin-bottom: 4px;
-      letter-spacing: 0.3px;
-    }
+            .roster-header {
+                font-weight: 700;
+                font-size: clamp(16px, 2vw, 18px);
+                margin-bottom: 4px;
+                letter-spacing: 0.3px;
+            }
 
-    .member-list { list-style: none; padding: 0; margin: 0; }
+            .member-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
 
-    .member {
-      /* Use button semantics for accessibility */
-      width: 100%;
-      border: 0;
-      background: transparent;
-      text-align: left;
-      padding: 12px 14px;
-      border-radius: 12px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      transition: background-color 160ms ease, transform 80ms ease;
-    }
-    .member:where(:hover, :focus-visible) { background: var(--highlight-bg); }
-    .member:active { transform: translateY(1px); }
+            .member {
+                /* Use button semantics for accessibility */
+                width: 100%;
+                border: 0;
+                background: transparent;
+                text-align: left;
+                padding: 12px 14px;
+                border-radius: 12px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                transition:
+                    background-color 160ms ease,
+                    transform 80ms ease;
+            }
+            .member:where(:hover, :focus-visible) {
+                background: var(--highlight-bg);
+            }
+            .member:active {
+                transform: translateY(1px);
+            }
 
-    .dot {
-      width: 8px; height: 8px; border-radius: 50%; background: #bbb; flex: none;
-    }
+            .dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: #bbb;
+                flex: none;
+            }
 
-    .member .label {
-      font-size: 16px;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-    }
+            .member .label {
+                font-size: 16px;
+                font-weight: 600;
+                letter-spacing: 0.2px;
+            }
 
-    .member.active .label {
-      text-decoration: underline; /* highlight effect */
-      text-underline-offset: 3px;
-      text-decoration-thickness: 2px;
-      text-decoration-color: var(--accent);
-    }
-    .member.active .dot { background: var(--accent); }
+            .member.active .label {
+                text-decoration: underline; /* highlight effect */
+                text-underline-offset: 3px;
+                text-decoration-thickness: 2px;
+                text-decoration-color: var(--accent);
+            }
+            .member.active .dot {
+                background: var(--accent);
+            }
 
-    /* Responsive behavior: stack on small screens */
-    @media (max-width: 880px) {
-      .page { grid-template-columns: 1fr; }
-      .roster { border-left: none; border-top: 1px solid #eee; }
-    }
+            /* Responsive behavior: stack on small screens */
+            @media (max-width: 880px) {
+                .page {
+                    grid-template-columns: 1fr;
+                }
+                .roster {
+                    border-left: none;
+                    border-top: 1px solid #eee;
+                }
+            }
 
-    /* Reduce motion for users who prefer it */
-    @media (prefers-reduced-motion: reduce) {
-      .member { transition: none; }
-      .photo-wrap img { transition: none; }
-    }
-  </style>
-</head>
-<body>
-  <main class="page" id="app">
-    <!-- LEFT HALF: photo + text -->
-    <section class="preview" aria-live="polite" aria-atomic="true">
-      <div class="photo-wrap">
-        <img id="photo" alt="Team member portrait" src="images/Sophie-Anne.jpg" />
-      </div>
-      <div class="name-role">
-        <div class="name" id="name">Sophie-Anne</div>
-        <div class="role" id="role">Home page designer</div>
-        <p class="bio" id="bio">Waitting to fill in</p>
-      </div>
-    </section>
+            /* Reduce motion for users who prefer it */
+            @media (prefers-reduced-motion: reduce) {
+                .member {
+                    transition: none;
+                }
+                .photo-wrap img {
+                    transition: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main class="page" id="app">
+            <!-- LEFT HALF: photo + text -->
+            <section class="preview" aria-live="polite" aria-atomic="true">
+                <div class="photo-wrap">
+                    <img
+                        id="photo"
+                        alt="Team member portrait"
+                        src="images/Sophie-Anne.jpg"
+                    />
+                </div>
+                <div class="name-role">
+                    <div class="name" id="name">Sophie-Anne</div>
+                    <div class="role" id="role">Home page designer</div>
+                    <p class="bio" id="bio">Waitting to fill in</p>
+                </div>
+            </section>
 
-    <!-- RIGHT HALF: vertical list of 6 members -->
-    <aside class="roster" aria-label="Team members">
-      <div class="roster-header">Team Members</div>
-      <ul class="member-list" role="listbox" aria-activedescendant="m-1" id="list">
-        <!-- Each button carries data-* that drives the left preview -->
-        <li>
-          <button id="m-1" class="member active" role="option" aria-selected="true"
-            data-name="Sophie-Anne Séguin"
-            data-role="Home page designer"
-            data-bio="Sophie-Anne Seguin, a 17-year-old freshman software engineering student who designed the site's home page, is a rising fashion star in the software industry, the most graphic model and most fashion-savvy programmer on the team."
-            data-img="images/Sophie-Anne.jpg">
-            <span class="dot" aria-hidden="true"></span>
-            <span class="label">Sophie-Anne Séguin</span>
-          </button>
-        </li>
-        <li>
-          <button id="m-2" class="member" role="option" aria-selected="false"
-            data-name="Julien DeWolfe"
-            data-role="product page designer"
-            data-bio="Waitting to fill in"
-            data-img="none">
-            <span class="dot" aria-hidden="true"></span>
-            <span class="label">Julien DeWolfe</span>
-          </button>
-        </li>
-        <li>
-          <button id="m-3" class="member" role="option" aria-selected="false"
-            data-name="Alperen Gurdal"
-            data-role="pricing page designer"
-            data-bio="A mysterious guy, he doesn't talk much, he's always tired, but he's cool."
-            data-img="none">
-            <span class="dot" aria-hidden="true"></span>
-            <span class="label">Alperen Gurdal</span>
-          </button>
-        </li>
-        <li>
-          <button id="m-4" class="member" role="option" aria-selected="false"
-            data-name="Sarah A.B."
-            data-role="pricing page designer"
-            data-bio="Waitting to fill in"
-            data-img="none">
-            <span class="dot" aria-hidden="true"></span>
-            <span class="label">Sarah A.B.</span>
-          </button>
-        </li>
-        <li>
-          <button id="m-5" class="member" role="option" aria-selected="false"
-            data-name="Lige Xiao"
-            data-role="Team page designer"
-            data-bio="Second year software engineering students, are learning Java and c++.Designed the name list switching function and photo introduction page switching function of the team page. A bored Chinese, his biggest wish is to be able to become very rich without going to work."
-            data-img="none">
-            <span class="dot" aria-hidden="true"></span>
-            <span class="label">Lige Xiao</span>
-          </button>
-        </li>
-        <li>
-          <button id="m-6" class="member" role="option" aria-selected="false"
-            data-name="Adam Achaba"
-            data-role="Team page designer"
-            data-bio="The design is involved in the html layout"
-            data-img="none">
-            <span class="dot" aria-hidden="true"></span>
-            <span class="label">Adam Achaba</span>
-          </button>
-        </li>
-      </ul>
-    </aside>
-  </main>
+            <!-- RIGHT HALF: vertical list of 6 members -->
+            <aside class="roster" aria-label="Team members">
+                <div class="roster-header">Team Members</div>
+                <ul
+                    class="member-list"
+                    role="listbox"
+                    aria-activedescendant="m-1"
+                    id="list"
+                >
+                    <!-- Each button carries data-* that drives the left preview -->
+                    <li>
+                        <button
+                            id="m-1"
+                            class="member active"
+                            role="option"
+                            aria-selected="true"
+                            data-name="Sophie-Anne Séguin"
+                            data-role="Home page designer"
+                            data-bio="Sophie-Anne Seguin, a 17-year-old freshman software engineering student who designed the site's home page, is a rising fashion star in the software industry, the most graphic model and most fashion-savvy programmer on the team."
+                            data-img="assets/Sophie-Anne.jpg"
+                        >
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="label">Sophie-Anne Séguin</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            id="m-2"
+                            class="member"
+                            role="option"
+                            aria-selected="false"
+                            data-name="Julien DeWolfe"
+                            data-role="product page designer"
+                            data-bio="Waitting to fill in"
+                            data-img="none"
+                        >
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="label">Julien DeWolfe</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            id="m-3"
+                            class="member"
+                            role="option"
+                            aria-selected="false"
+                            data-name="Alperen Gurdal"
+                            data-role="pricing page designer"
+                            data-bio="A mysterious guy, he doesn't talk much, he's always tired, but he's cool."
+                            data-img="none"
+                        >
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="label">Alperen Gurdal</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            id="m-4"
+                            class="member"
+                            role="option"
+                            aria-selected="false"
+                            data-name="Sarah A.B."
+                            data-role="pricing page designer"
+                            data-bio="Waitting to fill in"
+                            data-img="none"
+                        >
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="label">Sarah A.B.</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            id="m-5"
+                            class="member"
+                            role="option"
+                            aria-selected="false"
+                            data-name="Lige Xiao"
+                            data-role="Team page designer"
+                            data-bio="Second year software engineering students, are learning Java and c++.Designed the name list switching function and photo introduction page switching function of the team page. A bored Chinese, his biggest wish is to be able to become very rich without going to work."
+                            data-img="none"
+                        >
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="label">Lige Xiao</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            id="m-6"
+                            class="member"
+                            role="option"
+                            aria-selected="false"
+                            data-name="Adam Achaba"
+                            data-role="Team page designer"
+                            data-bio="The design is involved in the html layout"
+                            data-img="none"
+                        >
+                            <span class="dot" aria-hidden="true"></span>
+                            <span class="label">Adam Achaba</span>
+                        </button>
+                    </li>
+                </ul>
+            </aside>
+        </main>
 
-  <script>
-    // Small helper to update the left preview based on a member element
-    const photo = document.getElementById('photo');
-    const nameEl = document.getElementById('name');
-    const roleEl = document.getElementById('role');
-    const bioEl  = document.getElementById('bio');
+        <script>
+            // Small helper to update the left preview based on a member element
+            const photo = document.getElementById("photo");
+            const nameEl = document.getElementById("name");
+            const roleEl = document.getElementById("role");
+            const bioEl = document.getElementById("bio");
 
-    const list = document.getElementById('list');
-    const members = Array.from(document.querySelectorAll('.member'));
+            const list = document.getElementById("list");
+            const members = Array.from(document.querySelectorAll(".member"));
 
-    function activate(el, setFocus = false) {
-      members.forEach(m => { m.classList.remove('active'); m.setAttribute('aria-selected', 'false'); });
-      el.classList.add('active');
-      el.setAttribute('aria-selected', 'true');
-      list.setAttribute('aria-activedescendant', el.id);
+            function activate(el, setFocus = false) {
+                members.forEach((m) => {
+                    m.classList.remove("active");
+                    m.setAttribute("aria-selected", "false");
+                });
+                el.classList.add("active");
+                el.setAttribute("aria-selected", "true");
+                list.setAttribute("aria-activedescendant", el.id);
 
-      // Swap content on the left
-      const nextSrc = el.dataset.img || '';
-      const nextName = el.dataset.name || '';
-      const nextRole = el.dataset.role || '';
-      const nextBio  = el.dataset.bio  || '';
+                // Swap content on the left
+                const nextSrc = el.dataset.img || "";
+                const nextName = el.dataset.name || "";
+                const nextRole = el.dataset.role || "";
+                const nextBio = el.dataset.bio || "";
 
-      // Fade image by toggling opacity quickly
-      photo.style.opacity = 0.75;
-      const tempImg = new Image();
-      tempImg.onload = () => {
-        photo.src = nextSrc;
-        photo.alt = `${nextName} portrait`;
-        photo.style.opacity = 1;
-      };
-      tempImg.onerror = () => {
-        // Fallback placeholder if provided URL fails
-        photo.src = `https://placehold.co/1200x900?text=${encodeURIComponent(nextName)}`;
-        photo.alt = `${nextName} portrait placeholder`;
-        photo.style.opacity = 1;
-      };
-      tempImg.src = nextSrc;
+                // Fade image by toggling opacity quickly
+                photo.style.opacity = 0.75;
+                const tempImg = new Image();
+                tempImg.onload = () => {
+                    photo.src = nextSrc;
+                    photo.alt = `${nextName} portrait`;
+                    photo.style.opacity = 1;
+                };
+                tempImg.onerror = () => {
+                    // Fallback placeholder if provided URL fails
+                    photo.src = `https://placehold.co/1200x900?text=${encodeURIComponent(nextName)}`;
+                    photo.alt = `${nextName} portrait placeholder`;
+                    photo.style.opacity = 1;
+                };
+                tempImg.src = nextSrc;
 
-      nameEl.textContent = nextName;
-      roleEl.textContent = nextRole;
-      bioEl.textContent  = nextBio;
+                nameEl.textContent = nextName;
+                roleEl.textContent = nextRole;
+                bioEl.textContent = nextBio;
 
-      if (setFocus) el.focus();
-    }
+                if (setFocus) el.focus();
+            }
 
-    // Hover (mouse) and focus (keyboard) interactions
-    members.forEach(el => {
-      el.addEventListener('mouseenter', () => activate(el));
-      el.addEventListener('focus', () => activate(el));
-      el.addEventListener('click', () => activate(el));
-    });
+            // Hover (mouse) and focus (keyboard) interactions
+            members.forEach((el) => {
+                el.addEventListener("mouseenter", () => activate(el));
+                el.addEventListener("focus", () => activate(el));
+                el.addEventListener("click", () => activate(el));
+            });
 
-    // Keyboard navigation: Up/Down arrow within the list
-    list.addEventListener('keydown', (e) => {
-      const currentIndex = members.findIndex(m => m.classList.contains('active'));
-      if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        const next = members[Math.min(currentIndex + 1, members.length - 1)];
-        activate(next, true);
-      } else if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        const prev = members[Math.max(currentIndex - 1, 0)];
-        activate(prev, true);
-      }
-    });
+            // Keyboard navigation: Up/Down arrow within the list
+            list.addEventListener("keydown", (e) => {
+                const currentIndex = members.findIndex((m) =>
+                    m.classList.contains("active"),
+                );
+                if (e.key === "ArrowDown") {
+                    e.preventDefault();
+                    const next =
+                        members[Math.min(currentIndex + 1, members.length - 1)];
+                    activate(next, true);
+                } else if (e.key === "ArrowUp") {
+                    e.preventDefault();
+                    const prev = members[Math.max(currentIndex - 1, 0)];
+                    activate(prev, true);
+                }
+            });
 
-    // Initial state is the first member (ensure left panel matches data)
-    activate(members[0]);
-  </script>
-</body>
+            // Initial state is the first member (ensure left panel matches data)
+            activate(members[0]);
+        </script>
+    </body>
 </html>
