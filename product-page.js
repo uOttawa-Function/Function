@@ -1,5 +1,6 @@
 const wrapper = document.querySelector(".scroller-wrapper");
 const scroller = document.querySelector(".feature-card-scroller");
+const featureTag = document.querySelector(".feature-tag");
 
 // Clone the scrollers multiple times for smooth infinite scroll
 const cloneCount = 3;
@@ -17,6 +18,11 @@ wrapper.addEventListener(
   (e) => {
     if (e.target.classList.contains("feature-card")) {
       isPaused = true;
+
+      const cardText = e.target.querySelector(".feature-card-text");
+      if (cardText) {
+        featureTag.textContent = cardText.textContent;
+      }
     }
   },
   true,
