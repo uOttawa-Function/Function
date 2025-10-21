@@ -10,7 +10,7 @@ for (let i = 0; i < cloneCount; i++) {
 }
 
 let y = 0;
-const speed = 0.5;
+const speed = 2;
 let isPaused = false;
 
 wrapper.addEventListener(
