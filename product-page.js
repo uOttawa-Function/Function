@@ -3,7 +3,7 @@ const scroller = document.querySelector(".feature-card-scroller");
 const featureTag = document.querySelector(".feature-tag");
 
 // Clone the scrollers multiple times for smooth infinite scroll
-const cloneCount = 4;
+const cloneCount = 3;
 for (let i = 0; i < cloneCount; i++) {
   const clone = scroller.cloneNode(true);
   wrapper.appendChild(clone);
@@ -47,7 +47,7 @@ setTimeout(() => {
   // Calculate the height of the original set (first 2 scrollers + gap)
   const firstScrollerHeight = allScrollers[0].offsetHeight;
   const secondScrollerHeight = allScrollers[1].offsetHeight;
-  const gap = 50; // The gap between scrollers from CSS
+  const gap = 30; // The gap between scrollers from CSS
 
   const resetHeight = firstScrollerHeight + gap + secondScrollerHeight + gap;
 
