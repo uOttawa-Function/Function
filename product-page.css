@@ -1,12 +1,12 @@
 body {
     background-color: white;
-    font-family: "Roboto", sans-serif;
+    font-family: "Noto Sans", sans-serif;
 }
 
 .inset-body {
     background-color: #eeeeee;
     min-height: calc(100vh - 50px);
-    margin: 20px;
+    margin: 50px;
     padding: 20px;
     box-sizing: border-box;
     border-radius: 12px;
@@ -14,13 +14,6 @@ body {
     grid-template-columns: 1fr 1fr;
     overflow: hidden;
     max-height: 80vh;
-}
-
-.feature-tag {
-    font-size: 50px;
-}
-
-.feature-text-area {
 }
 
 .feature-carousel {
@@ -45,6 +38,8 @@ body {
     overflow: hidden;
     max-height: 90vh;
     margin-top: 20px;
+    margin-left: 50px;
+    padding: 20px;
 }
 
 .scroller-wrapper {
@@ -56,7 +51,7 @@ body {
 .feature-card-scroller {
     display: flex;
     flex-direction: column;
-    padding: 0; /* no extra padding */
+    padding: 0;
     justify-items: center;
     gap: 30px;
 }
@@ -67,11 +62,13 @@ body {
     padding: 5px;
     width: 100%;
     border: 2px solid #e1e1e1;
-    border-radius: 45px;
+    border-radius: 60px;
     max-height: 80px;
-    transition: 100ms;
+    transition: 250ms;
     align-items: center;
     display: flex;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .feature-card:hover {
@@ -79,16 +76,36 @@ body {
     border-color: black;
     color: white;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    transform: scale(1.02);
+    transition: 250ms;
 }
 
 .feature-card-text {
+    font-weight: normal;
     margin-left: 20px;
+    font-size: 28px;
 }
 
 .feature-card-image {
     width: auto;
     height: auto;
-    max-width: 75px;
-    max-height: 75px;
-    float: right;
+    max-width: 50px;
+    max-height: 50px;
+    margin-right: 25px;
+}
+
+.feature-card:hover .feature-card-image {
+    filter: brightness(0) invert(1);
+}
+
+.feature-description {
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.feature-tag {
+    font-size: 60px;
+    font-weight: 900;
+    padding-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
 }
