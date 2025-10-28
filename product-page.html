@@ -1,64 +1,97 @@
 <!doctype html>
 <html>
     <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
             rel="stylesheet"
         />
 
         <link rel="stylesheet" href="product-page.css" />
+        <link rel="stylesheet" href="navbar.css" />
     </head>
     <body>
+        <div id="navbar-placeholder"></div>
         <div class="inset-body">
             <div class="feature-text-area">
-                <h1 class="feature-tag">Feature 1</h1>
+                <h1 class="feature-tag">Event Reminders</h1>
                 <div>
-                    <h2>Feature short description</h2>
-                    <p>Feature long description</p>
+                    <p class="feature-description">
+                        Never miss another exciting event again. Function keeps
+                        you updated with timely reminders for all your upcoming
+                        gatherings whether it's a community meetup, concert, or
+                        local workshop. You'll always know when and where to be,
+                        so you can focus on enjoying the moment, not worrying
+                        about the details.
+                    </p>
                 </div>
             </div>
             <div class="feature-carousel">
                 <div class="scroller-wrapper">
                     <div class="feature-card-scroller">
-                        <div class="feature-card">
-                            <h1 class="feature-card-text">Feature 1</h1>
-                            <!--<img
-                                src="assets/placeholder_icon.png"
+                        <div class="feature-card" id="event-reminders">
+                            <h1 class="feature-card-text">Event Reminders</h1>
+                            <img
+                                src="assets/bell.png"
                                 alt="icon"
                                 class="feature-card-image"
-                                />-->
+                            />
                         </div>
-                        <div class="feature-card">
-                            <h1 class="feature-card-text">Feature 2</h1>
+                        <div class="feature-card" id="event-rsvps">
+                            <h1 class="feature-card-text">Event RSVPs</h1>
+                            <img
+                                src="assets/calendar.png"
+                                alt="icon"
+                                class="feature-card-image"
+                            />
                         </div>
-                        <div class="feature-card">
-                            <h1 class="feature-card-text">Feature 3</h1>
+                        <div class="feature-card" id="swipe-for-nearby-events">
+                            <h1 class="feature-card-text">
+                                Swipe for Nearby Events
+                            </h1>
+                            <img
+                                src="assets/location.png"
+                                alt="icon"
+                                class="feature-card-image"
+                            />
                         </div>
-                        <div class="feature-card">
-                            <h1 class="feature-card-text">Feature 4</h1>
+                        <div
+                            class="feature-card"
+                            id="personlized-recommendations"
+                        >
+                            <h1 class="feature-card-text">
+                                Personalized Recommendations
+                            </h1>
+                            <img
+                                src="assets/sparkles.png"
+                                alt="icon"
+                                class="feature-card-image"
+                            />
                         </div>
-                        <div class="feature-card">
-                            <h1 class="feature-card-text">Feature 5</h1>
+                        <div class="feature-card" id="community-newsletter">
+                            <h1 class="feature-card-text">
+                                Community Newsletter
+                            </h1>
+                            <img
+                                src="assets/newspaper.png"
+                                alt="icon"
+                                class="feature-card-image"
+                            />
                         </div>
-                        <div class="feature-card">
-                            <h1 class="feature-card-text">Feature 6</h1>
-                        </div>
-                        <div class="feature-card">
-                            <h1 class="feature-card-text">Feature 7</h1>
-                        </div>
-                        <div class="feature-card">
-                            <h1 class="feature-card-text">Feature 8</h1>
-                        </div>
-                        <div class="feature-card">
-                            <h1 class="feature-card-text">Feature 9</h1>
-                        </div>
-                        <div class="feature-card">
-                            <h1 class="feature-card-text">Feature 10</h1>
+                        <div class="feature-card" id="community-and-perks">
+                            <h1 class="feature-card-text">Community & Perks</h1>
+                            <img
+                                src="assets/chat.png"
+                                alt="icon"
+                                class="feature-card-image"
+                            />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <script src="product-page.js"></script>
+        <script src="load-navbar.js"></script>
     </body>
 </html>
