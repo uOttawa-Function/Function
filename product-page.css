@@ -101,11 +101,25 @@ body {
 .feature-description {
     line-height: 1.6;
     font-weight: 400;
+    margin-top: 50px;
 }
 
 .feature-tag {
-    font-size: 60px;
+    font-size: 50px;
     font-weight: 900;
-    padding-bottom: 20px;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.divider {
+    background-color: black;
+    height: 2.5px;
+    border-radius: 70px;
+}
+
+.feature-image {
+    border: 0px solid #e1e1e1;
+    border-radius: 25px;
+    height: auto;
+    width: 400px;
+    margin-top: 30px;
 }
