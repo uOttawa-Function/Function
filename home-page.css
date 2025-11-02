@@ -1,0 +1,119 @@
+/* Reset and general body styling */
+body {
+    background-color: #ffffff;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Navigation bar */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #ffffff;
+    padding: 10px 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav img {
+    width: 40px;
+    height: 60px;
+    border-radius: 5px;
+}
+
+nav a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #0077cc;
+}
+
+/* Main container similar to .inset-body */
+.main-container {
+    background-color: #eeeeee;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    min-height: calc(100vh - 50px);
+    overflow: hidden;
+}
+
+/* Left column for logo and text */
+.home-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-text img {
+    max-width: 100%;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.home-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Right column for images like a vertical carousel */
+.image-carousel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    padding-right: 10px;
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
+}
+
+/* Individual image cards */
+.image-card {
+    background-color: white;
+    border: 2px solid #e1e1e1;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.image-card:hover {
+    transform: scale(1.05);
+    border-color: #0077cc;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
