@@ -1,0 +1,86 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans", sans-serif;
+}
+
+/* Page layout */
+body {
+    background-color: #ffffff;
+    color: #0c0c0c;
+    overflow-x: hidden;
+}
+
+/* Section 1 (top beige section) */
+.beige-half {
+    background-color: #f9f6ef;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10%;
+    position: relative;
+}
+
+.beige-half img {
+    border-radius: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.05);
+}
+
+.beige-half p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: #1b1b1b;
+    max-width: 700px;
+}
+
+/* Section 2 (bottom blue section) */
+.blue-half {
+    background: linear-gradient(135deg, #d622ff, #0072ff);
+    padding: 5% 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    min-height: 70vh;
+}
+
+.blue-half img {
+    border-radius: 24px;
+    width: 240px;
+    height: 340px;
+    object-fit: cover;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.blue-half img:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Headings / typography styles (optional) */
+h1, h2 {
+    font-weight: 800;
+    font-size: 3rem;
+    color: #0d0d0d;
+}
+
+/* Smooth scrolling & transitions */
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button, a {
+    transition: all 0.3s ease;
+}
