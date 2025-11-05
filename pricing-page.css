@@ -1,61 +1,66 @@
-.box{
+body {
+    background-color: #f0f0f0;
+    background-image: url("data:image/svg+xml,<svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><path d='M0 0h60v1H0zm0 0v60h1V0z' fill='%23000000' fill-opacity='0.03'/></svg>");
+    background-size: 60px 60px;
+    font-family: "Noto Sans", sans-serif;
+}
+
+.box {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 700px;
-    background-color: white;
 }
-.box div{
-    height:490px;
+.box div {
+    height: 490px;
     width: 340px;
     background: #e1e1e1;
     margin: 60px;
-    text-align:left;
+    text-align: left;
     border-radius: 12px;
     border: 5px solid #9a9a9a;
-    
 }
-.box div:hover{
+.box div:hover {
     transform: scale(1.2);
     transition: 250ms;
-    box-shadow:5px 5px #9a9a9a ;
-    filter:invert(1);
+    box-shadow: 5px 5px #9a9a9a;
+    filter: invert(1);
     z-index: 2;
 }
-hr{
+hr {
     border: none;
     height: 3px;
-    background-color:#9a9a9a ;
+    background-color: #9a9a9a;
     margin: 20px 0;
 }
-h1{
+h1 {
     text-align: center;
-    font-family:"Noto Sans", sans-serif;
+    font-family: "Noto Sans", sans-serif;
     font-size: 45px;
 }
-h5{
+h5 {
     text-align: center;
-    font-family:"Noto Sans", sans-serif;
+    font-family: "Noto Sans", sans-serif;
     font-size: 15px;
 }
-body{
+body {
     font-family: "Noto Sans", sans-serif;
 }
-ul{
+ul {
     list-style-type: none;
-    padding:0;
-    margin:10px;
+    padding: 0;
+    margin: 10px;
 }
-li{
+li {
     padding-left: 20px;
     position: relative;
 }
-li.checkmark::before{
+li.checkmark::before {
     content: "";
     font-weight: bold;
-    position:absolute;
-    left:0;
-    top:50%;
+    position: absolute;
+    left: 0;
+    top: 50%;
     transform: translateY(-50%);
 
     background-image: url("assets/check.png");
@@ -63,15 +68,12 @@ li.checkmark::before{
     background-repeat: no-repeat;
     width: 20px;
     height: 20px;
-    
-
-
 }
-li.xmark::before{
+li.xmark::before {
     content: "";
     font-weight: bold;
-    position:absolute;
-    left:0;
+    position: absolute;
+    left: 0;
     top: 50%;
     transform: translateY(-50%);
 
@@ -80,9 +82,8 @@ li.xmark::before{
     background-repeat: no-repeat;
     width: 20px;
     height: 20px;
-    
 }
-li{
+li {
     padding-left: 25px;
     position: relative;
     margin-bottom: 10px;
