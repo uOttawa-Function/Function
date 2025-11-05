@@ -1,40 +1,173 @@
-.nav-content {
-    background-color: white;
+/* Floating navbar container */
+.floating-navbar {
     display: flex;
     justify-content: center;
-    gap: 50px;
-    padding: 15px;
-    padding-left: 50px;
-    padding-right: 50px;
-    border-radius: 70px;
-    height: 70px;
+    position: sticky;
+    top: 20px;
+    z-index: 1000;
+    padding: 0 20px;
+}
+
+.nav-content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 100px;
+    border: 1.5px solid rgba(0, 0, 0, 0.08);
     box-sizing: border-box;
-    border: 2px solid #e1e1e1;
     align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.08),
+        0 2px 8px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+/* Hover effect on entire nav */
+.nav-content:hover {
+    box-shadow:
+        0 12px 48px rgba(0, 0, 0, 0.12),
+        0 4px 12px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    border-color: rgba(0, 0, 0, 0.12);
 }
 
 .nav-element {
     text-decoration: none;
-    color: black;
-    transition: 250ms;
-    font-size: 20px;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: 100px;
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    letter-spacing: -0.3px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
-.nav-element:hover {
-    text-decoration: none;
+/* Subtle background on hover */
+.nav-element::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.03) 0%,
+        rgba(0, 0, 0, 0.06) 100%
+    );
+    border-radius: 100px;
+    opacity: 0;
+    transition: opacity 300ms ease;
+    z-index: -1;
+}
+
+.nav-element:hover::before {
+    opacity: 1;
+}
+
+/* Active/hover state */
+.nav-element:hover,
+.nav-element.active {
     color: white;
-    font-weight: bold;
-    background-color: black;
-    padding: 15px;
-    border-radius: 70px;
-    transform: scale(1.02);
-    transition: 250ms;
+    font-weight: 600;
+    background: linear-gradient(135deg, #000 0%, #2a2a2a 100%);
+    transform: scale(1.05);
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.25),
+        0 2px 6px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-.floating-navbar {
-    display: flex;
-    justify-content: center;
+/* Shine effect on hover */
+.nav-element::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: left 0.5s;
+}
+
+.nav-element:hover::after {
+    left: 100%;
+}
+
+/* Magnetic hover effect - elements slightly attract cursor */
+.nav-element:not(:hover) {
+    transform: scale(1);
+}
+
+/* Add a subtle indicator dot for active page */
+.nav-element.active::before {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+/* Optional: Add icon support */
+.nav-element .nav-icon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+    vertical-align: middle;
+    transition: transform 300ms ease;
+}
+
+.nav-element:hover .nav-icon {
+    transform: rotate(12deg) scale(1.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .nav-content {
+        gap: 4px;
+        padding: 8px 12px;
+    }
+
+    .nav-element {
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-navbar {
+        top: 10px;
+    }
+
+    .nav-content {
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 100%;
+    }
+
+    .nav-element {
+        font-size: 13px;
+        padding: 8px 14px;
+    }
 }
