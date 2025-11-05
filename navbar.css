@@ -108,6 +108,16 @@ nav {
     transition: left 0.5s;
 }
 
+.app-title {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 52px;
+    font-weight: 500;
+    margin: 0;
+}
+
 .nav-element:hover::after {
     left: 100%;
 }
