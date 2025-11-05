@@ -1,6 +1,7 @@
 nav {
     font-family: "Noto Sans", sans-serif;
 }
+
 /* Floating navbar container */
 .floating-navbar {
     display: flex;
