@@ -1,12 +1,12 @@
 body {
-    background-color: #f0f0f0;
+    background-color: white;
     background-image: url("data:image/svg+xml,<svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><path d='M0 0h60v1H0zm0 0v60h1V0z' fill='%23000000' fill-opacity='0.03'/></svg>");
     background-size: 60px 60px;
     font-family: "Noto Sans", sans-serif;
 }
 
 .inset-body {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     background-color: whitesmoke;
     min-height: calc(100vh - 50px);
     margin: 50px;
