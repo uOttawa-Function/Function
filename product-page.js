@@ -110,17 +110,17 @@ function changeDescriptionText(cardId) {
       descriptionElement.textContent =
         "Discover what's happening around you with just a swipe. Function uses location-based discovery to help you find local events, from cozy community gatherings to major city festivals. It's a fun and effortless way to explore your surroundings and meet people who share your interests.";
       break;
-    case "personalized-recomendations":
+    case "personalized-recommendations":
       descriptionElement.textContent =
         "Your time is valuable! that's why Function learns what you love. Receive customized event suggestions based on your preferences, past RSVPs, and favorite categories. The more you use the app, the smarter it gets at finding events that truly match your vibe.";
       break;
     case "community-newsletter":
       descriptionElement.textContent =
-        "Stay connected with the latest happenings from the Function community. Get exclusive event previews, stories, and highlights from members across the city — all delivered straight to your inbox. It's your inside look into what's trending and what's next in your local scene.";
+        "Stay connected with the latest happenings from the Function community. Get exclusive event previews, stories, and highlights from members across the city, all delivered straight to your inbox. It's your inside look into what's trending and what's next in your local scene.";
       break;
     case "community-and-perks":
       descriptionElement.textContent =
-        "Engage with like-minded people through chat groups and shared interests. Join conversations, exchange ideas, and make meaningful connections that go beyond the event. Plus, enjoy exclusive perks like Uber discounts to make getting there even easier. Function isn't just an app — it's your social hub.";
+        "Engage with like-minded people through chat groups and shared interests. Join conversations, exchange ideas, and make meaningful connections that go beyond the event. Plus, enjoy exclusive perks like Uber discounts to make getting there even easier. Function isn't just an app, it's your social hub.";
       break;
   }
 }
