@@ -6,8 +6,8 @@ body {
 }
 
 .inset-body {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
-    background: linear-gradient(135deg, #f0f2f5 0%, #eef0f3 50%, #e8eaed 100%);
+    box-shadow: 16px 16px 32px rgba(157, 123, 196, 0.25);
+    background: linear-gradient(135deg, #f0f2f5 0%, #eeebf2 70%, #eeebf2 100%);
     min-height: calc(100vh - 50px);
     margin: 70px;
     padding: 20px;
@@ -17,7 +17,7 @@ body {
     grid-template-columns: 1fr 1fr;
     overflow: hidden;
     max-height: 80vh;
-    border: 2px solid gray;
+    border: 2px solid #9d7bc4;
 }
 
 .feature-carousel {
@@ -73,6 +73,7 @@ body {
     display: flex;
     justify-content: space-between;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
 }
 
 .feature-card:hover {
@@ -110,30 +111,31 @@ body {
     color: #4a4a4a;
 }
 
+.feature-description.hovered {
+    background-size: 100% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    transition: 500ms;
+}
+
 .feature-tag {
     font-size: 70px;
     font-weight: 900;
     margin-bottom: 20px;
-    background: linear-gradient(
-        90deg,
-        #252525,
-        #434343,
-        #666666,
-        #434343,
-        #252525
-    );
-    background-size: 200% 100%;
+    color: #252525;
+    cursor: default;
+    transition: color 0.5s ease;
+}
+
+.feature-tag.hovered {
+    background-size: 100% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    transition: background-position 0.5s ease;
-    cursor: pointer;
-    transition: 250ms;
-}
-
-.feature-tag:hover {
-    background-position: 100% 0;
-    transition: 250ms;
+    color: transparent;
+    transition: 500ms;
 }
 
 .divider {

@@ -124,3 +124,51 @@ function changeDescriptionText(cardId) {
       break;
   }
 }
+
+// Feature Tag Gradient Movement
+featureTag.addEventListener("mouseenter", () => {
+  featureTag.classList.add("hovered");
+});
+
+featureTag.addEventListener("mousemove", (event) => {
+  if (!featureTag.classList.contains("hovered")) return;
+
+  const rect = featureTag.getBoundingClientRect();
+  const x = ((event.clientX - rect.left) / rect.width) * 100;
+  const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+  featureTag.style.background = `radial-gradient(circle at ${x}% ${y}%, #9d7bc4 0%, #6b5a8e 30%, #252525 60%)`;
+  featureTag.style.webkitBackgroundClip = "text";
+  featureTag.style.backgroundClip = "text";
+});
+
+featureTag.addEventListener("mouseleave", () => {
+  featureTag.classList.remove("hovered");
+  featureTag.style.background = "";
+  featureTag.style.color = "#252525";
+});
+
+// Feature Description Gradient Movement
+const featureDescription = document.querySelector(".feature-description");
+
+featureDescription.addEventListener("mouseenter", () => {
+  featureDescription.classList.add("hovered");
+});
+
+featureDescription.addEventListener("mousemove", (event) => {
+  if (!featureDescription.classList.contains("hovered")) return;
+
+  const rect = featureDescription.getBoundingClientRect();
+  const x = ((event.clientX - rect.left) / rect.width) * 100;
+  const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+  featureDescription.style.background = `radial-gradient(circle at ${x}% ${y}%, #9d7bc4 0%, #6b5a8e 30%, #4a4a4a 60%)`;
+  featureDescription.style.webkitBackgroundClip = "text";
+  featureDescription.style.backgroundClip = "text";
+});
+
+featureDescription.addEventListener("mouseleave", () => {
+  featureDescription.classList.remove("hovered");
+  featureDescription.style.background = "";
+  featureDescription.style.color = "#4a4a4a";
+});
