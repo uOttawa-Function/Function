@@ -12,44 +12,43 @@ body {
     min-height: 700px;
 }
 .box div {
-    height: 490px;
-    width: 340px;
-    background: #e1e1e1;
+    width: 500px;
     margin: 60px;
     text-align: left;
     border-radius: 12px;
-    border: 5px solid #9a9a9a;
-}
-.box div:hover {
-    transform: scale(1.2);
+    border: 2px solid #9d7bc4;
+    box-shadow: 16px 16px 32px rgba(157, 123, 196, 0.25);
+    background: linear-gradient(135deg, #f0f2f5 0%, #eeebf2 70%, #eeebf2 100%);
     transition: 250ms;
-    box-shadow: 5px 5px #9a9a9a;
-    filter: invert(1);
-    z-index: 2;
+}
+
+.box div:hover {
+    transform: scale(1.05);
+    transition: 250ms;
+    box-shadow: 16px 16px 32px rgba(157, 123, 196, 0.5);
 }
 hr {
     border: none;
-    height: 3px;
-    background-color: #9a9a9a;
-    margin: 20px 0;
+    height: 2px;
+    background-color: #9d7bc4;
+    color: #202020;
 }
 h1 {
     text-align: center;
-    font-family: "Noto Sans", sans-serif;
-    font-size: 45px;
+    font-size: 70px;
+    color: #202020;
+    font-weight: 500;
 }
 h5 {
     text-align: center;
-    font-family: "Noto Sans", sans-serif;
-    font-size: 15px;
-}
-body {
-    font-family: "Noto Sans", sans-serif;
+    font-size: 24px;
+    color: #252525;
+    font-weight: 400;
 }
 ul {
     list-style-type: none;
     padding: 0;
-    margin: 10px;
+    margin: 20px;
 }
 li {
     padding-left: 20px;
@@ -87,4 +86,6 @@ li {
     padding-left: 25px;
     position: relative;
     margin-bottom: 10px;
+    font-size: 20px;
+    color: #363636;
 }
