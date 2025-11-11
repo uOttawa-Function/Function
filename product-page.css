@@ -162,3 +162,15 @@ body {
     align-items: center;
     padding-bottom: 200px;
 }
+
+.page-title-holder {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.page-title {
+    font-size: 70px;
+    font-weight: 500;
+    color: #202020;
+}
