@@ -11,6 +11,10 @@
 
 <body>
     <div id="navbar-placeholder"></div>
+    
+    <div class="page-title-container">
+        <h1 class="page-title">Team Members</h1>
+    </div>
 
     <main class="page" id="app">
         <section class="preview" aria-live="polite" aria-atomic="true">
@@ -18,7 +22,7 @@
                 <img id="photo" src="assets/Alpheren.jpg" alt="Team member portrait">
                 <img id="photo" src="assets/Sarah.png" alt="Team member portrait">
                 <img id="photo" src="assets/Julien.jpg" alt="Team member portrait">
-                <img id="photo" src="assets/Adam.jpg" alt="Team member portrait">
+                <img id="photo" src="" alt="Team member portrait">
             </div>
             <div class="name-role">
                 <div class="name" id="name">Sophie-Anne</div>
@@ -28,35 +32,113 @@
         </section>
 
         <aside class="roster" aria-label="Team members">
-            <div class="roster-header">Team Members</div>
-            <ul class="member-list" role="listbox" aria-activedescendant="m-1" id="list">
-                <li><button id="m-1" class="member active" role="option" aria-selected="true"
-                    data-name="Alperen Gurdal"
-                    data-role="Home page designer"
-                    data-bio="A mysterious guy, he doesn't talk much, he's always tired, but he's cool."
-                    data-img="assets/Alpheren.jpg">
-                    <span class="dot"></span><span class="label">Alperen Gurdal</span>
-                </button></li>
+            <div class="member-scroller">
+              
+                <ul class="member-list" role="listbox" aria-activedescendant="m-1" id="list">
+                    <li>
+                        <button id="m-1" class="member active" role="option" aria-selected="true"
+                            data-name="Alperen Gurdal"
+                            data-role="Home page designer"
+                            data-bio="First-year Software Engineering student. Helped design the home page layout and contributed to the visual styling of the site."
+                            data-img="assets/Alpheren.jpg">
+                            <span class="dot"></span><span class="label">Alperen Gurdal</span>
+                        </button>
+                    </li>
 
-                <li><button id="m-2" class="member" data-name="Julien DeWolfe" data-role="product page designer" data-bio="Waitting to fill in" data-img="assets/Julien.jpg">
-                    <span class="dot"></span><span class="label">Julien DeWolfe</span>
-                </button></li>
+                    <li>
+                        <button id="m-2" class="member"
+                            data-name="Julien DeWolfe"
+                            data-role="Product page designer"
+                            data-bio="First-year Software Engineering student. Worked on the product page structure and helped maintain visual consistency across the website."
+                            data-img="assets/Julien.jpg">
+                            <span class="dot"></span><span class="label">Julien DeWolfe</span>
+                        </button>
+                    </li>
 
-        
+                    <li>
+                        <button id="m-3" class="member"
+                            data-name="Sarah A.B."
+                            data-role="Pricing page designer"
+                            data-bio="First-year Software Engineering student. Designed and structured the pricing page, including layout, UI elements, and styling."
+                            data-img="assets/Sarah.png">
+                            <span class="dot"></span><span class="label">Sarah A.B.</span>
+                        </button>
+                    </li>
 
-                <li><button id="m-3" class="member" data-name="Sarah A.B." data-role="pricing page designer" data-bio="Waitting to fill in" data-img="assets/Sarah.png">
-                    <span class="dot"></span><span class="label">Sarah A.B.</span>
-                </button></li>
+                    <li>
+                        <button id="m-4" class="member"
+                            data-name="Lige Xiao"
+                            data-role="Team page and Home page designer"
+                            data-bio="Second-year Software Engineering student. Contributed to the team page design and assisted with HTML/CSS structure and component layout."
+                            data-img="assets/placeholder.jpg">
+                            <span class="dot"></span><span class="label">Lige Xiao</span>
+                        </button>
+                    </li>
 
+                    <li>
+                        <button id="m-5" class="member"
+                            data-name="Adam Achaba"
+                            data-role="Team page designer"
+                            data-bio="First-year Software Engineering student. Developed the team page, implemented animations, and integrated member profiles and UI elements."
+                            data-img="">
+                            <span class="dot"></span><span class="label">Adam Achaba</span>
+                        </button>
+                    </li>
+                </ul>
 
-                <li><button id="m-4" class="member" data-name="Lige Xiao" data-role="Team page designer" data-bio="Second year software engineering student, learning Java and C++." data-img="assets/placeholder.jpg">
-                    <span class="dot"></span><span class="label">Lige Xiao</span>
-                </button></li>
+                
+                <ul class="member-list">
+                    <li>
+                        <button class="member"
+                            data-name="Alperen Gurdal"
+                            data-role="Home page designer"
+                            data-bio="First-year Software Engineering student. Helped design the home page layout and contributed to the visual styling of the site."
+                            data-img="assets/Alpheren.jpg">
+                            <span class="dot"></span><span class="label">Alperen Gurdal</span>
+                        </button>
+                    </li>
 
-                <li><button id="m-5" class="member" data-name="Adam Achaba" data-role="Team page designer" data-bio="The design is involved in the HTML layout." data-img="assets/Adam.jpg">
-                    <span class="dot"></span><span class="label">Adam Achaba</span>
-                </button></li>
-            </ul>
+                    <li>
+                        <button class="member"
+                            data-name="Julien DeWolfe"
+                            data-role="Product page designer"
+                            data-bio="First-year Software Engineering student. Worked on the product page structure and helped maintain visual consistency across the website."
+                            data-img="assets/Julien.jpg">
+                            <span class="dot"></span><span class="label">Julien DeWolfe</span>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button class="member"
+                            data-name="Sarah A.B."
+                            data-role="Pricing page designer"
+                            data-bio="First-year Software Engineering student. Designed and structured the pricing page, including layout, UI elements, and styling."
+                            data-img="assets/Sarah.png">
+                            <span class="dot"></span><span class="label">Sarah A.B.</span>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button class="member"
+                            data-name="Lige Xiao"
+                            data-role="Team page and Home page designer"
+                            data-bio="Second-year Software Engineering student. Contributed to the team page design and assisted with HTML/CSS structure and component layout."
+                            data-img="assets/placeholder.jpg">
+                            <span class="dot"></span><span class="label">Lige Xiao</span>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button class="member"
+                            data-name="Adam Achaba"
+                            data-role="Team page designer"
+                            data-bio="First-year Software Engineering student. Developed the team page, implemented animations, and integrated member profiles and UI elements."
+                            data-img="">
+                            <span class="dot"></span><span class="label">Adam Achaba</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </aside>
     </main>
 
